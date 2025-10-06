@@ -28,19 +28,19 @@ const values = [
 
 const team = [
   {
-    name: "Ana Silva",
-    role: "CEO & Co-fundadora",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-    initials: "AS",
+    name: "Alcides Casemiro",
+    role: "CEO & Co-fundador",
+    image: "FOTODOMEUAMIGAO.jpg",
+    initials: "AC",
   },
   {
-    name: "Carlos Mendes",
+    name: "Albert Freitas",
     role: "CTO & Co-fundador",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    initials: "CM",
+    image: "fotoalbert.jpeg",
+    initials: "AF",
   },
   {
-    name: "Marina Costa",
+    name: "Vinicius Costa",
     role: "Head of Design",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
     initials: "MC",
@@ -71,7 +71,7 @@ export function AboutSection() {
           <div className="space-y-6">
             <h3 className="mb-4">Nossa História</h3>
             <p className="text-foreground/80 leading-relaxed">
-              Fundada em 2018, a DevStudio nasceu da paixão de dois desenvolvedores
+              Fundada em 2025, a QuantumCode nasceu da paixão de  desenvolvedores
               que acreditavam que o software poderia transformar negócios de forma
               significativa. O que começou como um pequeno estúdio hoje é uma equipe
               de profissionais talentosos dedicados a criar soluções digitais excepcionais.

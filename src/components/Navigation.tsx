@@ -39,7 +39,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="cursor-pointer" onClick={() => scrollToSection("home")}>
-            <span className="text-xl md:text-2xl tracking-tight">DevStudio</span>
+            <span className="text-xl md:text-2xl tracking-tight">QuantumCode</span>
           </div>
 
           {/* Desktop Navigation */}

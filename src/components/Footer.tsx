@@ -16,9 +16,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="text-2xl mb-4 tracking-tight">DevStudio</div>
+          <div className="text-2xl mb-4 tracking-tight">QuantumCode</div>
             <p className="text-sm text-foreground/70">
-              Transformando ideias em soluções digitais inovadoras desde 2018.
+              Transformando ideias em soluções digitais inovadoras desde 2025.
             </p>
           </div>
 
