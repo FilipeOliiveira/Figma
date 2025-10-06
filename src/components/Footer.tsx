@@ -95,7 +95,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-foreground/60 flex items-center gap-1">
-            © {currentYear} DevStudio. Feito com <Heart className="w-4 h-4 text-red-500 fill-red-500" /> e <Code2 className="w-4 h-4" />
+            
           </p>
           <div className="flex gap-6 text-sm text-foreground/60">
             <a href="#" className="hover:text-foreground transition-colors">

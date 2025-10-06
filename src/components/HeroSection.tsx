@@ -25,9 +25,9 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+          {/* <div className="inline-block mb-6 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
             <span className="text-sm text-primary/80">Desenvolvimento de Software sob Medida</span>
-          </div>
+          </div> */}
           
           <h1 className="mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight">
             Desenvolvemos software que impulsiona o{" "}
@@ -62,7 +62,7 @@ export function HeroSection() {
           </div>
 
           {/* Social Proof - Client Logos */}
-          <div className="mt-20 pt-10 border-t border-border/50">
+          {/* <div className="mt-20 pt-10 border-t border-border/50">
             <p className="text-sm text-foreground/50 mb-6">Confiado por empresas inovadoras</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-40">
               <div className="text-2xl tracking-tight">TechCorp</div>
@@ -70,7 +70,7 @@ export function HeroSection() {
               <div className="text-2xl tracking-tight">InnovateHub</div>
               <div className="text-2xl tracking-tight">DigitalFirst</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
