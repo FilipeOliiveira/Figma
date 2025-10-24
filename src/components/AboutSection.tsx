@@ -2,6 +2,7 @@ import { Target, Heart, Lightbulb, Users } from "lucide-react";
 import { Card } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import equipeImg from "../assets/equipe.jpeg";
 
 const values = [
   {
@@ -66,9 +67,9 @@ export function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-stretch">
           {/* Story */}
-          <div className="space-y-6">
+          <div className="space-y-6 h-full flex flex-col justify-center">
             <h3 className="mb-4">Nossa História</h3>
             <p className="text-foreground/80 leading-relaxed">
               Fundada em 2025, a QuantumCode nasceu da paixão de  desenvolvedores
@@ -90,65 +91,29 @@ export function AboutSection() {
 
           {/* Image */}
           <div className="relative">
-            <div className="relative h-96 lg:h-full rounded-2xl overflow-hidden">
+            <div className="relative h-96 lg:h-96 rounded-2xl overflow-hidden">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NTk2MTQ2ODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src={equipeImg}
                 alt="Nossa equipe"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="grid grid-cols-3 gap-4 text-white">
-                  <div>
-                    <div className="text-3xl mb-1">50+</div>
-                    <div className="text-sm opacity-90">Projetos</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl mb-1">30+</div>
-                    <div className="text-sm opacity-90">Clientes</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl mb-1">6+</div>
-                    <div className="text-sm opacity-90">Anos</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
         {/* Values */}
-        <div className="mb-20">
-          <h3 className="text-center mb-12">Nossos Valores</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mb-10">
+          <h3 className="text-center mb-12 text-2xl md:text-3xl">Nossos Valores</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="p-6 text-center border-border/50 hover:border-primary/20 transition-all">
+              <Card key={index} className="p-6 md:p-8 text-center border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
                 <div className="mb-4 p-3 bg-primary/5 rounded-full inline-block">
                   <value.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h4 className="mb-2">{value.title}</h4>
-                <p className="text-sm text-foreground/70">{value.description}</p>
+                <h4 className="mb-2 font-semibold">{value.title}</h4>
+                <p className="text-sm text-foreground/70 leading-relaxed">{value.description}</p>
               </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Team */}
-        <div>
-          <h3 className="text-center mb-4">Conheça Nossa Equipe</h3>
-          <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto">
-            Profissionais apaixonados e experientes, prontos para transformar sua visão em realidade.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="text-center group cursor-pointer">
-                <Avatar className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 ring-4 ring-background group-hover:ring-primary/20 transition-all">
-                  <AvatarImage src={member.image} alt={member.name} />
-                  <AvatarFallback>{member.initials}</AvatarFallback>
-                </Avatar>
-                <h4 className="mb-1">{member.name}</h4>
-                <p className="text-sm text-foreground/60">{member.role}</p>
-              </div>
             ))}
           </div>
         </div>

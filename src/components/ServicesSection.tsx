@@ -1,4 +1,4 @@
-import { Code2, Smartphone, Palette, Database, Cloud, Zap } from "lucide-react";
+import { Code2, Smartphone, Palette, Database, Cloud, Zap, Bot } from "lucide-react";
 import { Card } from "./ui/card";
 
 const services = [
@@ -15,12 +15,6 @@ const services = [
     technologies: ["React Native", "Flutter", "iOS", "Android"],
   },
   {
-    icon: Palette,
-    title: "Consultoria UX/UI",
-    description: "Design centrado no usuário que combina estética com funcionalidade. Criamos interfaces intuitivas que seus clientes vão adorar.",
-    technologies: ["Figma", "Design System", "Prototyping", "User Research"],
-  },
-  {
     icon: Database,
     title: "Backend & APIs",
     description: "Arquiteturas robustas e APIs RESTful e GraphQL que garantem performance, segurança e escalabilidade para sua aplicação.",
@@ -31,6 +25,12 @@ const services = [
     title: "Cloud & DevOps",
     description: "Implementação e gerenciamento de infraestrutura em nuvem, CI/CD e automação para garantir entregas contínuas.",
     technologies: ["AWS", "Google Cloud", "Docker", "Kubernetes"],
+  },
+  {
+    icon: Bot,
+    title: "Criação de Bots & Automação",
+    description: "Desenvolvemos bots personalizados e soluções de automação para otimizar processos e melhorar a eficiência.",
+    technologies: ["Chatbots", "Automação de Processos", "Integrações", "Machine Learning"],
   },
   {
     icon: Zap,

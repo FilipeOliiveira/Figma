@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,6 +13,12 @@ export function ContactSection() {
     company: "",
     message: "",
   });
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "5598916999491"; // +55 98 9169-9491 (sem formatação)
+    const message = encodeURIComponent("Olá! Gostaria de agendar uma reunião para conversar sobre um projeto.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,70 +51,68 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6">
-            <Card className="p-6 border-border/50">
+            <Card className="p-6 md:p-8 border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/5 rounded-lg">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="mb-1">Email</h4>
-                  <p className="text-sm text-foreground/70">contato@devstudio.com.br</p>
-                  <p className="text-sm text-foreground/70">comercial@devstudio.com.br</p>
+                  <h4 className="mb-1 font-semibold">Email</h4>
+                  <p className="text-sm text-foreground/70">o.quantum.code@gmail.com</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 border-border/50">
+            <Card className="p-6 md:p-8 border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/5 rounded-lg">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="mb-1">Telefone</h4>
-                  <p className="text-sm text-foreground/70">+55 11 1234-5678</p>
-                  <p className="text-sm text-foreground/70">+55 11 98765-4321</p>
+                  <h4 className="mb-1 font-semibold">Telefone</h4>
+                  <p className="text-sm text-foreground/70">+55 98 9169-9491</p>
+                  <p className="text-sm text-foreground/70">+55 98 8463-1881</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 border-border/50">
+            <Card className="p-6 md:p-8 border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/5 rounded-lg">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="mb-1">Localização</h4>
+                  <h4 className="mb-1 font-semibold">Localização</h4>
                   <p className="text-sm text-foreground/70">
-                    Av. Paulista, 1000<br />
-                    São Paulo, SP - Brasil
+                    São Luís - MA
                   </p>
                 </div>
               </div>
             </Card>
 
             <div className="pt-6">
-              <h4 className="mb-4">Redes Sociais</h4>
+              <h4 className="mb-4 font-semibold">Redes Sociais</h4>
               <div className="flex gap-3">
                 <a
                   href="#"
-                  className="p-3 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
+                  className="p-3 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="p-3 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
+                  className="p-3 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110"
                   aria-label="Twitter"
                 >
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="p-3 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
+                  className="p-3 bg-muted hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110"
                   aria-label="GitHub"
                 >
                   <Github className="w-5 h-5" />
@@ -119,11 +123,11 @@ export function ContactSection() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="p-6 md:p-8 border-border/50">
+            <Card className="p-6 md:p-8 lg:p-10 border-border/50 hover:shadow-lg transition-all duration-300">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm">
+                    <label htmlFor="name" className="text-sm font-medium">
                       Nome Completo *
                     </label>
                     <Input
@@ -137,7 +141,7 @@ export function ContactSection() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm">
+                    <label htmlFor="email" className="text-sm font-medium">
                       Email *
                     </label>
                     <Input
@@ -154,7 +158,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="company" className="text-sm">
+                  <label htmlFor="company" className="text-sm font-medium">
                     Empresa
                   </label>
                   <Input
@@ -168,7 +172,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm">
+                  <label htmlFor="message" className="text-sm font-medium">
                     Mensagem *
                   </label>
                   <Textarea
@@ -183,7 +187,7 @@ export function ContactSection() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full md:w-auto gap-2">
+                <Button type="submit" size="lg" className="w-full md:w-auto gap-2 hover:scale-105 transition-transform duration-300">
                   Enviar Mensagem
                   <Send size={18} />
                 </Button>
@@ -193,8 +197,8 @@ export function ContactSection() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-20 p-8 md:p-12 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-2xl text-center">
-          <h3 className="mb-3">Pronto para começar seu projeto?</h3>
+        <div className="mt-20 p-8 md:p-12 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-2xl text-center shadow-xl">
+          <h3 className="mb-3 text-2xl md:text-3xl">Pronto para começar seu projeto?</h3>
           <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
             Agende uma reunião gratuita de 30 minutos para discutirmos como podemos
             ajudar a transformar suas ideias em realidade.
@@ -202,8 +206,8 @@ export function ContactSection() {
           <Button
             size="lg"
             variant="secondary"
-            className="gap-2"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="gap-2 hover:scale-105 transition-transform duration-300"
+            onClick={handleWhatsAppClick}
           >
             Agendar Reunião Gratuita
           </Button>

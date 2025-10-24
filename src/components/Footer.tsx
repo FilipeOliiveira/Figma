@@ -16,7 +16,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-          <div className="text-2xl mb-4 tracking-tight">QuantumCode</div>
+            <div className="text-2xl mb-4 tracking-tight">QuantumCode</div>
             <p className="text-sm text-foreground/70">
               Transformando ideias em soluções digitais inovadoras desde 2025.
             </p>
@@ -77,9 +77,10 @@ export function Footer() {
           <div>
             <h4 className="mb-4 text-sm">Contato</h4>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li>contato@devstudio.com.br</li>
-              <li>+55 11 1234-5678</li>
-              <li>São Paulo, SP</li>
+              <li>o.quantum.code@gmail.com</li>
+              <li>+55 98 9169-9491</li>
+              <li>+55 98 8463-1881</li>
+              <li>São Luís - MA</li>
               <li className="pt-2">
                 <button
                   onClick={() => scrollToSection("contact")}
@@ -95,7 +96,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-foreground/60 flex items-center gap-1">
-            
+
           </p>
           <div className="flex gap-6 text-sm text-foreground/60">
             <a href="#" className="hover:text-foreground transition-colors">

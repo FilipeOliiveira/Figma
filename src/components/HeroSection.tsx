@@ -10,6 +10,12 @@ export function HeroSection() {
     }
   };
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "5598916999491"; // +55 98 9169-9491 (sem formatação)
+    const message = encodeURIComponent("Olá! Gostaria de agendar uma reunião para conversar sobre um projeto.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -28,7 +34,7 @@ export function HeroSection() {
           {/* <div className="inline-block mb-6 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
             <span className="text-sm text-primary/80">Desenvolvimento de Software sob Medida</span>
           </div> */}
-          
+
           <h1 className="mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight">
             Desenvolvemos software que impulsiona o{" "}
             <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
@@ -36,17 +42,17 @@ export function HeroSection() {
             </span>{" "}
             do seu negócio
           </h1>
-          
+
           <p className="mb-10 text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-            Transformamos suas ideias em soluções digitais inovadoras. 
-            Desenvolvimento web, apps mobile e consultoria UX/UI de excelência.
+            Transformamos suas ideias em soluções digitais inovadoras.
+            Desenvolvimento web, apps mobile.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
               className="gap-2 px-8"
-              onClick={() => scrollToSection("contact")}
+              onClick={handleWhatsAppClick}
             >
               Entre em Contato
               <ArrowRight size={18} />
