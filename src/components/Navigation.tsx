@@ -22,20 +22,28 @@ export function Navigation() {
         return false;
       });
       if (current) setActiveSection(current);
-    };
 
-    // Fechar menu ao rolar a página
-    const handleScrollClose = () => {
-      if (isMobileMenuOpen) {
+      // Fechar menu ao rolar a página
+      if (isMobileMenuOpen && window.scrollY > 0) {
         setIsMobileMenuOpen(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("scroll", handleScrollClose);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("scroll", handleScrollClose);
+    };
+  }, [isMobileMenuOpen]);
+
+  // Prevenir scroll do body quando menu está aberto
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
 
@@ -86,16 +94,15 @@ export function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${activeSection === item.id
-                  ? "text-primary"
-                  : "text-foreground/70 hover:text-foreground"
+                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${activeSection === item.id
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground"
                   }`}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                 )}
-                <span className="absolute inset-0 rounded-lg bg-primary/0 hover:bg-primary/5 transition-colors duration-300" />
               </button>
             ))}
             <Button
@@ -116,21 +123,24 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-background/98 backdrop-blur-md border-b border-border/50 transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 border-b-0"
+        className={`md:hidden bg-background/98 backdrop-blur-md transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen
+          ? "max-h-[600px] opacity-100 border-b border-border/50"
+          : "max-h-0 opacity-0"
           }`}
       >
-        <div className="px-4 py-6 space-y-2">
+        <div className={`px-4 py-6 space-y-2 ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
           {navItems.map((item, index) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`block w-full text-left px-5 py-3.5 rounded-xl font-medium transition-all duration-300 ${activeSection === item.id
-                ? "bg-primary/15 text-primary shadow-sm scale-[1.02]"
-                : "text-foreground/80 hover:text-foreground hover:bg-primary/5 active:scale-95"
+              className={`block w-full text-left px-5 py-3.5 font-medium transition-all duration-300 ${activeSection === item.id
+                  ? "text-primary"
+                  : "text-foreground/80 hover:text-foreground"
                 }`}
               style={{
-                animationDelay: `${index * 50}ms`,
-                animation: isMobileMenuOpen ? 'slideIn 0.3s ease-out forwards' : 'none'
+                transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms',
+                opacity: isMobileMenuOpen ? 1 : 0,
+                transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(-10px)'
               }}
             >
               <span className="flex items-center justify-between">
@@ -143,7 +153,7 @@ export function Navigation() {
           ))}
           <div className="pt-4 border-t border-border/30 mt-4">
             <Button
-              className="w-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95"
+              className="w-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-[0.98]"
               onClick={handleWhatsAppClick}
               size="lg"
             >
