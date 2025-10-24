@@ -23,9 +23,21 @@ export function Navigation() {
       });
       if (current) setActiveSection(current);
     };
+
+    // Fechar menu ao rolar a página
+    const handleScrollClose = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScrollClose);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollClose);
+    };
+  }, [isMobileMenuOpen]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -47,6 +59,7 @@ export function Navigation() {
     const phoneNumber = "5598916999491"; // +55 98 9169-9491 (sem formatação)
     const message = encodeURIComponent("Olá! Gostaria de agendar uma reunião para conversar sobre um projeto.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    setIsMobileMenuOpen(false); // Fechar menu após clicar
   };
 
   return (
@@ -103,32 +116,40 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-background/95 backdrop-blur-md border-b border-border/50 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden bg-background/98 backdrop-blur-md border-b border-border/50 transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 border-b-0"
           }`}
       >
-        <div className="px-4 py-4 space-y-1">
+        <div className="px-4 py-6 space-y-2">
           {navItems.map((item, index) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${activeSection === item.id
-                ? "bg-primary/10 text-primary"
-                : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
+              className={`block w-full text-left px-5 py-3.5 rounded-xl font-medium transition-all duration-300 ${activeSection === item.id
+                ? "bg-primary/15 text-primary shadow-sm scale-[1.02]"
+                : "text-foreground/80 hover:text-foreground hover:bg-primary/5 active:scale-95"
                 }`}
               style={{
                 animationDelay: `${index * 50}ms`,
                 animation: isMobileMenuOpen ? 'slideIn 0.3s ease-out forwards' : 'none'
               }}
             >
-              {item.label}
+              <span className="flex items-center justify-between">
+                {item.label}
+                {activeSection === item.id && (
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                )}
+              </span>
             </button>
           ))}
-          <Button
-            className="w-full mt-3 shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={handleWhatsAppClick}
-          >
-            Agendar Reunião
-          </Button>
+          <div className="pt-4 border-t border-border/30 mt-4">
+            <Button
+              className="w-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95"
+              onClick={handleWhatsAppClick}
+              size="lg"
+            >
+              Agendar Reunião
+            </Button>
+          </div>
         </div>
       </div>
     </nav>
