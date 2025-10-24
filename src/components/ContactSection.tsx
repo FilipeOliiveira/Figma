@@ -15,7 +15,7 @@ export function ContactSection() {
   });
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5598916999491"; // +55 98 9169-9491 (sem formatação)
+    const phoneNumber = "5598991699491"; // +55 98 9169-9491 (sem formatação)
     const message = encodeURIComponent("Olá! Gostaria de agendar uma reunião para conversar sobre um projeto.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
